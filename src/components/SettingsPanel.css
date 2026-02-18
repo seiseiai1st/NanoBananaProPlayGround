@@ -1,0 +1,143 @@
+/* ========================================
+   SettingsPanel — 設定パネル
+   ======================================== */
+
+.settings-panel {
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.settings-panel h2 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.settings-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.settings-group label {
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.api-key-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.api-key-wrapper input {
+    padding-right: 40px;
+}
+
+.api-key-toggle {
+    position: absolute;
+    right: 8px;
+    background: none;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    padding: 4px;
+    border-radius: 4px;
+    transition: color var(--transition-fast);
+}
+
+.api-key-toggle:hover {
+    color: var(--color-text-primary);
+}
+
+.api-key-status {
+    font-size: var(--font-size-xs);
+    color: var(--color-success);
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.api-key-status.not-set {
+    color: var(--color-text-muted);
+}
+
+/* アスペクト比グリッド */
+.aspect-ratio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xs);
+}
+
+.aspect-ratio-btn {
+    padding: var(--space-xs) var(--space-sm);
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid var(--color-border-glass);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    text-align: center;
+}
+
+.aspect-ratio-btn:hover {
+    border-color: var(--color-accent-primary);
+    color: var(--color-text-primary);
+}
+
+.aspect-ratio-btn.active {
+    background: var(--gradient-accent);
+    color: white;
+    border-color: transparent;
+    box-shadow: var(--shadow-glow);
+}
+
+/* 解像度ボタン */
+.resolution-group {
+    display: flex;
+    gap: var(--space-xs);
+}
+
+.resolution-btn {
+    flex: 1;
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid var(--color-border-glass);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.resolution-btn:hover {
+    border-color: var(--color-accent-primary);
+    color: var(--color-text-primary);
+}
+
+.resolution-btn.active {
+    background: var(--gradient-accent);
+    color: white;
+    border-color: transparent;
+    box-shadow: var(--shadow-glow);
+}
+
+.resolution-price {
+    display: block;
+    font-size: var(--font-size-xs);
+    font-weight: 400;
+    opacity: 0.7;
+    margin-top: 2px;
+}

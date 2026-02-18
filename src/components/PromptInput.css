@@ -1,0 +1,183 @@
+/* ========================================
+   PromptInput — プロンプト入力 & 参照画像
+   ======================================== */
+
+.prompt-input-panel {
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.prompt-input-panel h2 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.prompt-textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+/* ドロップゾーン */
+.dropzone {
+    border: 2px dashed var(--color-border-glass);
+    border-radius: var(--radius-md);
+    padding: var(--space-xl);
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.dropzone:hover,
+.dropzone.dragging {
+    border-color: var(--color-accent-primary);
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.dropzone.dragging {
+    box-shadow: inset 0 0 30px rgba(99, 102, 241, 0.1);
+}
+
+.dropzone-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-text-muted);
+}
+
+.dropzone-icon {
+    font-size: 2rem;
+    opacity: 0.6;
+}
+
+.dropzone-text {
+    font-size: var(--font-size-sm);
+}
+
+.dropzone-hint {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+.dropzone input[type="file"] {
+    display: none;
+}
+
+/* 参照画像プレビュー */
+.reference-preview {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border-glass);
+}
+
+.reference-preview img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+.reference-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.reference-info .filename {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+.reference-info .filesize {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+.reference-remove {
+    background: rgba(248, 113, 113, 0.15);
+    color: var(--color-error);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    border-radius: var(--radius-sm);
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--font-size-xs);
+    transition: all var(--transition-fast);
+}
+
+.reference-remove:hover {
+    background: rgba(248, 113, 113, 0.25);
+}
+
+/* 生成ボタン */
+.generate-btn {
+    padding: var(--space-md) var(--space-xl);
+    background: var(--gradient-accent);
+    color: white;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.02em;
+}
+
+.generate-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.6s ease;
+}
+
+.generate-btn:hover:not(:disabled)::before {
+    left: 100%;
+}
+
+.generate-btn:hover:not(:disabled) {
+    box-shadow: var(--shadow-glow), var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.generate-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.generate-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.generate-btn.loading {
+    pointer-events: none;
+}
+
+.btn-spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-right: var(--space-sm);
+    vertical-align: middle;
+}

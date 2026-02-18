@@ -1,0 +1,57 @@
+/* ========================================
+   CostDisplay — コスト概算表示
+   ======================================== */
+
+.cost-display {
+    padding: var(--space-md) var(--space-xl);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+    flex-wrap: wrap;
+}
+
+.cost-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cost-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.cost-value {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.cost-value .usd {
+    color: var(--color-accent-primary);
+}
+
+.cost-value .jpy {
+    color: var(--color-text-secondary);
+    font-weight: 400;
+    font-size: var(--font-size-sm);
+    margin-left: var(--space-xs);
+}
+
+.cost-divider {
+    width: 1px;
+    height: 32px;
+    background: var(--color-border-glass);
+}
+
+.cost-item.total .cost-value .usd {
+    color: var(--color-success);
+}
+
+.cost-count {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    font-weight: 400;
+}
