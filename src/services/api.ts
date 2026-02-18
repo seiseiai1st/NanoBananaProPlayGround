@@ -154,11 +154,17 @@ export async function generateImage(
 
     /* finishReason チェック */
     const finishReason = candidates[0]?.finishReason;
+    const finishMessage = candidates[0]?.finishMessage;
     if (finishReason && finishReason !== 'STOP') {
+        const detailLines = [`finishReason: ${finishReason}`];
+        if (finishMessage) {
+            detailLines.push(`\nfinishMessage:\n${finishMessage}`);
+        }
+        detailLines.push(`\n--- レスポンス全体 ---\n${responseDebug}`);
         throw new ApiError(
-            `生成が中断されました (finishReason: ${finishReason})`,
+            `生成が中断されました (${finishReason})`,
             response.status,
-            responseDebug,
+            detailLines.join('\n'),
         );
     }
 

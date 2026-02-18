@@ -148,6 +148,11 @@ export default function App() {
                         resolution={resolution}
                         onResolutionChange={setResolution}
                     />
+                    <CostDisplay
+                        lastCost={lastCost}
+                        totalCost={totalCost}
+                        generationCount={generationCount}
+                    />
                 </aside>
 
                 {/* メインエリア */}
@@ -171,15 +176,6 @@ export default function App() {
                     />
                 </div>
             </main>
-
-            {/* フッター: コスト表示 */}
-            <footer className="app-footer">
-                <CostDisplay
-                    lastCost={lastCost}
-                    totalCost={totalCost}
-                    generationCount={generationCount}
-                />
-            </footer>
         </div>
     );
 }
